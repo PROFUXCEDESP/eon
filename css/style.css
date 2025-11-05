@@ -1,0 +1,323 @@
+/* Importando a fonte do google fonts para o projeto */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* Reset CSS */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+}
+
+/* Configurando o Topo e Navbar (Estilos Desktop) */
+
+.topo{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    background-color: #005c9abe;
+    transition: all 0.3s ease-in-out; 
+    z-index: 1000;
+}
+
+.navbar{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    
+}
+
+.img-brand{
+    width: 160px;
+    height: 90px;
+}
+
+
+.nav-list{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+
+
+.nav-link{
+    font-weight: 700;
+    text-decoration: none;
+    color: #FFF;
+
+}
+
+.btn-cta-container{
+    display: flex;
+    align-items: center;
+}
+
+.btn-cta{
+    width: 265px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    text-decoration: none;
+    color: #001B38;
+    background-color: #DCE1FD;
+    border-radius: 32px;
+
+}
+
+
+/* Configurando a Hero Section (Estilos Desktop) */
+
+.hero-section{
+    width: 100%;
+    height: 800px;
+    background-image: url(../assets/image/hero-image.jpeg);
+    background-size: cover;
+    background-position: center center; /* Posição padrão para desktop */
+}
+
+.linear-container{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    align-items: end;
+    padding: 32px;
+    /* Adicionado o linear-gradient para legibilidade */
+   background: linear-gradient(360deg,#005D9A,#005c9ac1,#005c9a79,#005c9a20,#005c9a00); 
+}
+
+.texto-hero-section{
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hat-hero{
+    font-weight:700;
+    color: #FEFAEC;
+}
+
+.titulo-hero{
+    color: #c7e9ff;
+}
+
+.description-hero{
+    color: #FEFAEC;
+    text-align: center;
+}
+
+.button-hero-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+}
+
+.btn-secondary{
+    width: 265px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    text-decoration: none;
+    color: #DCE1FD;
+    border:1px solid #DCE1FD;
+    border-radius: 32px;
+}
+
+/* =================================================== */
+/* === INÍCIO DO CÓDIGO DE RESPONSIVIDADE (MOBILE) === */
+/* =================================================== */
+
+/* 1. Correção para o Header Fixo (Adaptação Desktop/Mobile) */
+.hero-section {
+    padding-top: 100px; 
+    height: 900px; 
+}
+
+/* 2. Estilos Base do Hamburger (Escondido no Desktop) */
+.hamburger {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 32px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010; 
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #FFF;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 3. Animação do Hamburger para "X" (quando o JS adiciona a classe 'active') */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}
+
+
+/* =================================================== */
+/* === BREAKPOINT 1: Tablets e Mobile (max-width: 992px) === */
+/* =================================================== */
+@media (max-width: 992px) {
+    
+    /* Navbar no modo desktop (antes de abrir o menu) */
+    .navbar {
+        justify-content: center; 
+        position: relative; 
+        padding: 0 32px; 
+    }
+
+    /* Mostra o Hamburger */
+    .hamburger {
+        display: flex;
+        position: absolute; 
+        right: 32px; 
+    }
+
+    /* Esconde o Menu e CTA do Desktop por padrão */
+    .nav-list,
+    .btn-cta-container {
+        display: none;
+    }
+
+    /* Estilos do Menu Mobile QUANDO ABERTO (com a classe 'menu-open' no .topo) */
+    
+    /* O topo expande para cobrir a tela */
+    .topo.menu-open {
+        height: 100vh;
+        background-color: #005c9a; 
+        overflow-y: auto; 
+    }
+
+    /* O navbar, dentro do topo.menu-open, vira uma coluna */
+    .topo.menu-open .navbar {
+        flex-direction: column; 
+        height: 100%; 
+        justify-content: flex-start; 
+        padding-top: 20px; 
+    }
+
+    /* Garante que o container do logo seja centralizado no menu aberto */
+    .topo.menu-open .brand-container {
+        width: 100%;
+        text-align: center; 
+        margin-bottom: 40px; 
+    }
+
+    /* Posicionamento correto do "X" */
+    .topo.menu-open .hamburger {
+        position: absolute;
+        top: 38px; 
+        right: 32px;
+    }
+    
+    /* A lista de links (agora visível e centralizada) */
+    .nav-list.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%; 
+        gap: 24px;
+        list-style: none;
+        padding: 0;
+        align-items: center; 
+    }
+
+    /* O botão CTA (agora visível e centralizado) - Correção de quebra */
+    .btn-cta-container.active {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px; 
+        width: 100%; 
+    }
+
+    /* Ajusta os links para melhor toque */
+    .nav-link {
+        font-size: 1.25rem; 
+        text-align: center;
+    }
+
+    /* O botão CTA em si precisa ter uma largura máxima para não esticar demais */
+    .btn-cta {
+        max-width: 300px; 
+        width: 90%; 
+        height: 50px; 
+    }
+}
+
+
+/* =================================================== */
+/* === BREAKPOINT 2: Mobile Pequeno (max-width: 768px) === */
+/* =================================================== */
+@media (max-width: 768px) {
+
+    /* Ajustes no Header */
+    .navbar {
+        padding: 0 24px; 
+    }
+    .hamburger {
+        right: 24px;
+    }
+    .img-brand {
+        width: 140px; 
+        height: auto;
+    }
+    .topo.menu-open .hamburger {
+        top: 38px; 
+        right: 24px;
+    }
+
+    /* Ajustes na Hero Section */
+    .hero-section {
+        height: 100vh; /* Ocupa 100% da altura da tela menos a altura do header */
+        /* Desloca a imagem de fundo para a esquerda */
+        background-position-x: 50%; 
+    }
+    .linear-container {
+        height: 100%; /* Ocupa a altura restante da hero-section */
+        padding: 24px;
+        align-items: center; 
+    }
+    .texto-hero-section {
+        width: 100%; 
+        text-align: center;
+
+    }
+
+    /* Ajustes nos Botões da Hero: Empilha os botões */
+    .button-hero-container {
+        flex-direction: column; 
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .btn-cta,
+    .btn-secondary {
+        width: 100%; 
+        max-width: 320px;
+    }
+}
