@@ -1,0 +1,367 @@
+/* Importando a fonte do projeto */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset do CSS */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Configurando o topo e Navbar (Estilo Desktop Base) */
+
+.topo{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    z-index: 100;
+}
+
+.navbar{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; /* Alinha itens no centro vertical */
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.img-brand{
+    width:150px;
+    height:82px;
+}
+
+.nav-list{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-link{
+    text-decoration: none;
+    font-weight: 600;
+    color: #FEFAEC;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover{
+    color: #77E1FF; /* Exemplo de cor hover */
+}
+
+/* Estilos do Botão CTA (Desktop e Mobile) */
+
+.button-cta{
+    width: 202px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FEFAEC;
+    color: #181818;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.button-cta:hover {
+    background-color: #77E1FF;
+}
+
+/* Ocultar o CTA Mobile no desktop */
+.cta-mobile-item {
+    display: none; 
+}
+
+/* Ocultar o checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/* Estilo do Ícone Hamburger */
+.hamburger-icon {
+    display: none; /* Oculto por padrão, visível apenas no mobile */
+    cursor: pointer;
+    z-index: 1001; /* Garante que fique acima do menu e do header */
+    padding: 10px 5px;
+    position: relative; /* Para a animação 'X' */
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #FEFAEC;
+    transition: all 0.3s ease-in-out; /* Transição suave */
+}
+
+/* Estilos para a Transição (Hamburger para X) */
+.hamburger-icon.open .bar:nth-child(2) {
+    opacity: 0; /* Barra do meio some */
+}
+
+.hamburger-icon.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg); /* Gira e move para formar a parte superior do X */
+}
+
+.hamburger-icon.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); /* Gira e move para formar a parte inferior do X */
+}
+
+/* Configurando a Hero Section (Estilo Desktop Base) */
+
+.hero-section{
+    width: 100%;
+    height: 728px;
+    background-image: url(../assets/image/eo-hero-ponte.jpeg);
+    background-size: cover;
+    background-position: 95%; /* Padrão desktop */
+}
+
+.linear-container{
+    width: 100%;
+    height: 728px;
+    display: flex;
+    align-items: flex-end; /* Alinha o conteúdo à parte inferior (padrão desktop) */
+    padding: 32px;
+    background: linear-gradient(360deg, #000000,#000000bb,#00000050,#0000001f, #0000000a);
+}
+
+
+.texto-hero-container{
+    width: 65%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 16px;
+    color: #FEFAEC;
+}
+
+.hat-hero{
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.titulo-hero{
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    color:#77E1FF;
+}
+
+.description-hero{
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.button-hero-container{
+    width: auto;
+    height: auto;
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.button-secondary{
+    width: 152px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FEFAEC;
+    color: #FEFAEC;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.button-secondary:hover {
+    background-color: rgba(254, 250, 236, 0.1);
+}
+
+/* ========================================================== */
+/* MEDIA QUERIES - RESPONSIVIDADE (MOBILE FIRST UP)             */
+/* ========================================================== */
+
+/* BREAKPOINT 1: Tablet e Laptops Pequenos (max-width: 992px) */
+@media (max-width: 992px) {
+    /* Navbar Ajustes */
+    .navbar {
+        justify-content: space-between;
+        padding: 16px 24px;
+    }
+
+    /* Reduz a largura da lista de links no tablet */
+    .nav-list {
+        width: 50%; 
+    }
+    
+    /* Hero Section Ajustes */
+
+    .hero-section{
+        background-position: 95%;
+    }
+    .texto-hero-container {
+        width: 75%; /* Aumenta a largura do texto na hero */
+    }
+    
+    .titulo-hero {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* BREAKPOINT 2: Tablet Pequeno e Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    
+    /* === HEADER MOBILE === */
+    
+    /* Exibir o ícone Hamburger no canto direito */
+    .hamburger-icon {
+        display: block; 
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Centraliza o Logotipo */
+    .navbar {
+        justify-content: center; 
+        padding: 16px;
+    }
+    
+    /* Oculta o CTA de desktop */
+    .cta-container {
+        display: none; 
+    }
+
+    /* Oculta a lista de navegação (desktop) e prepara para a transição mobile */
+    .nav-list {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Move para fora da tela (oculto) */
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out; /* Transição para abertura */
+        z-index: 1000;
+        gap: 30px;
+        padding: 60px 0; /* Padding superior/inferior para melhor visualização */
+    }
+
+    /* Mostrar o menu quando a classe 'active' for adicionada pelo JS */
+    .nav-list.active {
+        right: 0;
+    }
+    
+    /* Exibir o CTA Mobile dentro do menu e aplicar o espaçamento maior */
+    .cta-mobile-item {
+        display: block;
+        margin-top: 50px; /* Aumenta a distância dos links */
+        padding: 10px 0; /* Adiciona padding vertical para espaçamento maior */
+    }
+
+    .nav-link {
+        font-size: 1.5rem; /* Aumenta o tamanho da fonte para mobile */
+    }
+    
+    /* === HERO SECTION MOBILE === */
+
+    .hero-section {
+        /* AJUSTE: Hero 100% da altura da tela */
+        height: 100vh;
+        /* Desloca o background para a esquerda conforme solicitado */
+        background-position: 95%; 
+    }
+
+    .linear-container {
+        /* AJUSTE: Alinhamento para baixo e 100% da altura */
+        height: 100vh;
+        align-items: flex-end; /* Move o texto para perto da base da tela */
+        padding: 32px;
+        justify-content: initial; 
+    }
+    
+    .texto-hero-container {
+        width: 100%; 
+        align-items: center; /* Centraliza o texto e botões no mobile */
+        text-align: center;
+        gap: 8px;
+    }
+    
+    /* Centraliza o título e descrição */
+    .titulo-hero, .description-hero, .hat-hero {
+        text-align: center;
+    }
+    
+    .button-hero-container {
+        flex-direction: column; /* Botões um abaixo do outro */
+        gap: 12px;
+        width: 100%;
+        align-items: center; /* Centraliza os botões */
+    }
+    
+    /* Botões na hero section ocupam a largura total do container e mantêm o tamanho */
+    .button-cta, .button-secondary {
+        width: 100%; 
+        max-width: 250px; /* Limita o tamanho máximo do botão para não ficar muito largo */
+    }
+
+    .titulo-hero {
+        font-size: 2rem; 
+    }
+
+    .description-hero {
+        font-size: 1rem;
+    }
+}
+
+
+/* BREAKPOINT 3: Mobile Extra Pequeno (max-width: 576px) */
+@media (max-width: 576px) {
+    .img-brand {
+        width: 120px;
+        height: auto;
+    }
+    
+    /* Hero Section Ajustes */
+    .hero-section, .linear-container {
+        height: 100vh; /* Mantém 100vh */
+        background-position: 95%;
+    }
+
+    .hat-hero {
+        font-size: 10px;
+    }
+
+    .titulo-hero {
+        font-size: 1.6rem;
+    }
+    
+    .description-hero {
+        font-size: 0.9rem;
+    }
+
+    .button-cta, .button-secondary {
+        width: 100%; 
+        max-width: 202px; /* Reduz o tamanho máximo do botão */
+        padding: 12px;
+    }
+}
