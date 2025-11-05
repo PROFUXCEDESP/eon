@@ -344,7 +344,7 @@
     /* Hero Section Ajustes */
     .hero-section, .linear-container {
         height: 100vh; /* Mantém 100vh */
-        background-position: 95%;
+        background-position: 90%;
     }
 
     .hat-hero {
@@ -364,4 +364,5 @@
         max-width: 202px; /* Reduz o tamanho máximo do botão */
         padding: 12px;
     }
+
 }
